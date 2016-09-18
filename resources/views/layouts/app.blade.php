@@ -55,8 +55,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Schools <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ url('/school/add') }}">Add New</a></li>
-                            <li><a href="#">Manage</a></li>
+                            <li><a href="{{ url('/school/create') }}">Add New</a></li>
+                            <li><a href="{{ url('/school') }}">Manage</a></li>
+                            <li><a href="{{ url('/school') }}">Manage SubUsers</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -64,6 +65,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">Add New</a></li>
                             <li><a href="#">Manage</a></li>
+                            <li><a href="#">Create Coupon</a></li>
+                            <li><a href="#">Manage Coupon</a></li>
+                            <li><a href="#">Manage SubUsers</a></li>
                         </ul>
                     </li>
                 </ul>

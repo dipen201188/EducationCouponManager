@@ -22,3 +22,4 @@ Route::get('hello', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::resource('school', 'SchoolController');
