@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\School;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
+
 use App\Http\Requests;
-use Session;
 
-class SchoolController extends Controller
+class UserController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -21,7 +16,7 @@ class SchoolController extends Controller
 
     public function index()
     {
-        return view('school.show');
+        return view('user.show');
     }
 
     /**
@@ -31,7 +26,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        return view('school.create');
+        return view('user.create');
     }
 
     /**
@@ -39,26 +34,9 @@ class SchoolController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
-            $this->validate($request, [
-                'name'          => 'required',
-                'street1'       => 'required',
-                'city'          => 'required',
-                'state'         => 'required',
-                'zip'           => 'required|numeric',
-                'admin'         => 'required|email',
-                'category'      => 'required'
-            ]);
-
-
-            $input = $request->all();
-            School::create($input);
-            // redirect
-            Session::flash('message', 'Successfully created school!');
-            return redirect()->back();
-
     }
 
     /**
@@ -69,7 +47,7 @@ class SchoolController extends Controller
      */
     public function show($id)
     {
-        return view('school.show');
+        return view('user.show');
     }
 
     /**

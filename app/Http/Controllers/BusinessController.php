@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Business;
 use Illuminate\Http\Request;
+use Session;
 
 use App\Http\Requests;
 
 class BusinessController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +21,7 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        //
+        return view('business.show');
     }
 
     /**
@@ -25,7 +31,7 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        //
+        return view('business.create');
     }
 
     /**
@@ -36,7 +42,25 @@ class BusinessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'                  => 'required',
+            'street_address'        => 'required',
+            'place_id'              => 'required',
+            'city'                  => 'required',
+            'state'                 => 'required',
+            'zip'                   => 'required',
+            'country'               => 'required',
+            'admin'                 => 'required|email',
+            'lat'                   => 'required',
+            'lng'                   => 'required'
+        ]);
+
+
+        $input = $request->all();
+        Business::create($input);
+        // redirect
+        Session::flash('message', 'Successfully created '. $request->name .' business!');
+        return redirect()->back();
     }
 
     /**
@@ -47,7 +71,7 @@ class BusinessController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('business.show');
     }
 
     /**

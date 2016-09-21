@@ -23,3 +23,6 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('school', 'SchoolController');
+Route::resource('user', 'UserController');
+Route::resource('business', 'BusinessController');
+Route::resource('offer', 'OfferController');
